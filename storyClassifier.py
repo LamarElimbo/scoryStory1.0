@@ -3,7 +3,7 @@ import pickle, os
 def classifyStory(story):
 
     pickleDir = os.getcwd()
-    pickleFilePath = pickleDir +'/scory_story_v1/savedNBClassifier.pkl'
+    pickleFilePath = pickleDir +'/savedNBClassifier.pkl'
     savedClassifier = open(pickleFilePath, 'rb')
     classer = pickle.load(savedClassifier)
     vectorer = pickle.load(savedClassifier)
