@@ -1,0 +1,44 @@
+{% extends "_skeleton_template.html" %}
+{% block title %}Lamar's Web Apps - Scory Story 1.0{% endblock %}
+{% block content %}
+    <h1 class="page-header">Howdy, I'm Scory Story 1.0!</h1>
+    <div class="lead">
+      <p>
+        Movie and tv show soundtracks help to evoke a deeper emotional connection with a given scene.  Fight scenes are often accompanied by something a bit more hardcore when compared to romantic scenes which, in turn, tend to be paired with something a lot softer.
+      </p>
+
+      <p>
+        Music adds a whole new dimension to the viewer's experience and a movie/show lacking in strategically selected and well-placed music may just be missing out on a valuable opportunity to paint a vibrant and relatable picture.
+      </p>
+
+      <p>
+        While the vast majority of movies/shows seemed to have picked up on the power of music, most literary works have not.  This is where Scory Story comes in.
+      </p>
+
+      <p>
+        While an ideal version of this app can follow a reader's place in a story in virtual space and play an appropriate non-lyrical song, this current version allows a user to enter text and have it categorized into one of several scene types and return a song with a similar tone.  To see the basic breakdown of how this current version works, visit: <a href='http://www.lamartalkscode.com/scory-story-the-power-of-a-good-soundtrack/'>www.lamartalkscode.com/scory-story-the-power-of-a-good-soundtrack/</a>
+      </p>
+
+      <p>
+        Feel free to give it a try and enter in some text to see what song you get in return!
+      </p>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-11 col-md-5 maintext">
+        <form action="{{ url_for('scory_story_v1_result')}}" method="post">
+                <h3>Give it a try and see what song you get in return!</h3><input type="text" name="sent" style="font-size:16pt; width:100%"/><br><br>
+                <input type="submit" value="Submit" id="submitButton">
+              </form>
+        </div>
+
+        <div class="col-xs-11 col-md-5 maintext" style='position:absolute; right:7%;'>
+
+          <p><b>Your input:</b> "{{sent}}"</p>
+          <p>Scory Story classified it as a <b>{{genre}}</b> scene, which would probably sound good with {{musicGenre}} music</p>
+
+          <iframe src="https://www.youtube.com/embed/{{youtube_id}}" width="100%" height="315px" frameborder="0" allowfullscreen></iframe>
+
+        </div>
+    </div>
+{% endblock %}
